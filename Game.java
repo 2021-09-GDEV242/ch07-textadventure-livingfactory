@@ -103,6 +103,10 @@ public class Game
         CommandWord commandWord = command.getCommandWord();
 
         switch (commandWord) {
+            case LOOK:
+                look();
+                break;
+            
             case UNKNOWN:
                 System.out.println("I don't know what you mean...");
                 break;
@@ -162,6 +166,15 @@ public class Game
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
+    }
+    
+    /**
+     * "Look" was entered. This command will let the user see
+     * the description and exits of a room.
+     */
+    private void look()
+    {
+        System.out.println(currentRoom.getLongDescription());
     }
 
     /** 
