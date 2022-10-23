@@ -131,5 +131,14 @@ public class Room
     {
         return exits.get(direction);
     }
+    
+    
+    /**
+     * Remove requested item.
+     * @param item The item.
+     */
+    public void removeItem(Item item){
+        items.remove(item);
+    }
 }
 
