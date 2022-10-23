@@ -103,6 +103,10 @@ public class Game
         CommandWord commandWord = command.getCommandWord();
 
         switch (commandWord) {
+            case EAT:
+                eat();
+                break;
+            
             case LOOK:
                 look();
                 break;
@@ -128,6 +132,7 @@ public class Game
 
     // implementations of user commands:
 
+    
     /**
      * Print out some help information.
      * Here we print some stupid, cryptic message and a list of the 
@@ -166,6 +171,15 @@ public class Game
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
+    }
+    
+    /**
+     * "Eat" was entered. This command will have the user
+     * eat.
+     */
+    private void eat()
+    {
+        System.out.println("You are no longer hungry.");
     }
     
     /**
