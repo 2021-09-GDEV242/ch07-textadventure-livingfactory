@@ -1,0 +1,4 @@
+Basic and Intermediate Features
+
+This game now contains many different commands. Each room can now have items and each item has a description and weight.
+Users can now enter the previous room.
