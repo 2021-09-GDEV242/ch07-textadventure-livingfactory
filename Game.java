@@ -136,7 +136,7 @@ public class Game
     /**
      * Print out some help information.
      * Here we print some stupid, cryptic message and a list of the 
-     * command words.
+     * command words. Already prints commands properly.
      */
     private void printHelp() 
     {
