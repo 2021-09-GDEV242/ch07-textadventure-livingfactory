@@ -19,6 +19,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Room previousRoom;
         
     /**
      * Create the game and initialise its internal map.
@@ -122,10 +123,16 @@ public class Game
             case GO:
                 goRoom(command);
                 break;
+            
+            case BACK:
+                back();
+                break;
 
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+                
+    
         }
         return wantToQuit;
     }
@@ -147,6 +154,22 @@ public class Game
         parser.showCommands();
     }
 
+    
+    /**
+     * Take the user to the previous room.
+     */
+    private void back(){
+        if(previousRoom == null){
+            System.out.println("There is no previous room.");
+        }
+        else{
+            Room temp = currentRoom;
+            currentRoom = previousRoom;
+            previousRoom = temp;
+            System.out.println(currentRoom.getLongDescription());
+        }
+    }
+    
     /** 
      * Try to go in one direction. If there is an exit, enter the new
      * room, otherwise print an error message.
@@ -168,6 +191,7 @@ public class Game
             System.out.println("There is no door!");
         }
         else {
+            previousRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
