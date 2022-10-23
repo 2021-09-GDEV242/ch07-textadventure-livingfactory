@@ -1,6 +1,7 @@
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  * Class Room - a room in an adventure game.
@@ -21,8 +22,8 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
     private Item item;
+    private ArrayList items;
 
-    
     /**
     * Create a room described "description". Initially, it has
     * no exits. "description" is something like "a kitchen" or
@@ -34,6 +35,7 @@ public class Room
         this.description = description;
         exits = new HashMap<>();
         this.item = new Item("", "");
+        items = new ArrayList<>();
     }
     
     /**
@@ -49,6 +51,7 @@ public class Room
         this.description = description;
         exits = new HashMap<>();
         this.item = new Item(itemDescription, itemWeight);
+        items = new ArrayList<>();
     }
 
     /**
@@ -71,6 +74,28 @@ public class Room
     }
 
     /**
+     * Gather information of items.
+     * @returns Description and weight ofitems.
+     */
+    public String getItemsInfo(){
+        int count = 0;
+        String itemsInfo = "";
+        while (items.size() > count){
+            itemsInfo += item.getItemInfo()+"\n";
+        }
+        return itemsInfo;
+    }
+    
+    /**
+     * Add an item to a room.
+     * @param itemDescription The description of the item.
+     * @param itemWeight The weight of the item.
+     */
+    public void addItem(String itemDescription, String itemWeight){
+        items.add(new Item(itemDescription, itemWeight));
+    }
+    
+    /**
      * Return a description of the room in the form:
      *     You are in the kitchen.
      *     Exits: north west
@@ -78,7 +103,7 @@ public class Room
      */
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString() + item.getItemInfo();
+        return "You are " + description + ".\n" + getExitString() + getItemsInfo();
     }
 
     /**
