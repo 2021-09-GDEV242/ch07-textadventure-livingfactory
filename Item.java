@@ -7,9 +7,9 @@
 public class Item
 {
     private String description;
-    private String weight;
+    private int weight;
 
-    public Item(String description, String weight){
+    public Item(String description, Integer weight){
         this.description = description; 
         this.weight = weight;
     }
@@ -18,5 +18,9 @@ public class Item
         if(description.equals(""))
             return "";
         return description + ", Weight: " + weight;
+    }
+    
+    public int getWeight(){
+        return weight;
     }
 }

@@ -34,7 +34,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<>();
-        this.item = new Item("", "");
+        this.item = new Item("", 0);
         items = new ArrayList<>();
     }
     
@@ -46,7 +46,7 @@ public class Room
      * @param itemDescripton The description of the item.
      * @param itemWeight The weight of the item.
      */
-    public Room(String description, String itemDescription, String itemWeight) 
+    public Room(String description, String itemDescription, Integer itemWeight) 
     {
         this.description = description;
         exits = new HashMap<>();
@@ -91,7 +91,7 @@ public class Room
      * @param itemDescription The description of the item.
      * @param itemWeight The weight of the item.
      */
-    public void addItem(String itemDescription, String itemWeight){
+    public void addItem(String itemDescription, Integer itemWeight){
         items.add(new Item(itemDescription, itemWeight));
     }
     

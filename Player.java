@@ -70,7 +70,7 @@ public class Player
      * @returns Inventory weight.
      */
     public int getInventoryWeight() {
-    return invWeight;
+        return invWeight;
     }
     
     /**
