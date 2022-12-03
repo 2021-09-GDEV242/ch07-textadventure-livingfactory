@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 /**
- * Write a description of class Player here.
+ * The main player for the super text adventure
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author David Yager
+ * @version v1.1
  */
 public class Player
 {
@@ -26,6 +26,10 @@ public class Player
         invWeight+= item.getWeight();
     }
     
+    /**
+     * Returns the current item.
+     * @returns the current item.
+     */
     public Item getItem(){ 
         return item;
     }
@@ -42,6 +46,8 @@ public class Player
     
     /**
      * Constructor for player.
+     * @param name The name of the player
+     * @param startingRoom The selected starting room
      */
     public Player(String name, Room startingRoom){
         this.name = name;
@@ -52,6 +58,7 @@ public class Player
     
     /**
      * Sets current room.
+     * @param currentRoom the room to enter.
      */
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
@@ -75,7 +82,7 @@ public class Player
     
     /**
      * Returns name when called.
-     * @returns Name.
+     * @returns The name of the room.
      */
     public String getName() {
         return name;
